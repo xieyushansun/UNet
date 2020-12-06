@@ -7,7 +7,7 @@ from torch.utils.data import DataLoader
 from Net import UNet
 
 
-def train(args, model, device, train_loader, optimizer, criterion, epoch):
+def train(model, device, train_loader, optimizer, criterion, epoch):
     model.train()
     for batch_idx, (data, target) in enumerate(train_loader):
         data, target = data.to(device), target.to(device)

@@ -7,6 +7,7 @@ import argparse
 import cv2
 import os
 
+
 def eval_net(net, testdataLoader, device, batch):
     net.eval()
     for imgs, names in testdataLoader:
@@ -19,6 +20,7 @@ def eval_net(net, testdataLoader, device, batch):
                 img_pred.cpu().numpy()
                 img_pred = img_pred * 255
                 cv2.imwrite(os.path.join('./pre', names[index]), img_pred)
+
 
 if __name__ == '__main__':
     transform = transforms.Compose([transforms.ToTensor()])
